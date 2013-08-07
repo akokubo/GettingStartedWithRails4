@@ -26,6 +26,16 @@ class PostsController < ApplicationController
 	  @post = Post.find(params[:id])
 	end
 
+	def update
+	  @post = Post.find(params[:id])
+	 
+	  if @post.update(params[:post].permit(:title, :text))
+	    redirect_to @post
+	  else
+	    render 'edit'
+	  end
+	end
+
 private
 	def post_params
 		# require(キー) キーが存在している場合、それを返す
