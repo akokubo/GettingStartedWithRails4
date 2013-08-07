@@ -10,6 +10,10 @@ class PostsController < ApplicationController
 		redirect_to @post
 	end
 
+	def show
+		@post = Post.find(params[:id])
+	end
+
 private
 	def post_params
 		# require(キー) キーが存在している場合、それを返す
